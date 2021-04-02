@@ -1,0 +1,45 @@
+{
+  "name": "zadanie-loty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "build": "webpack --mode=production && webpack --mode=prodcution --config webpack.client.prod.js",
+    "start": "node ./build/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@hot-loader/react-dom": "^17.0.1",
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
+    "@types/webpack-dev-middleware": "^4.1.2",
+    "@types/webpack-hot-middleware": "^2.25.4",
+    "css-loader": "^5.2.0",
+    "nodemon": "^2.0.7",
+    "react-hot-loader": "^4.13.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "ts-loader": "^8.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-middleware": "^4.1.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.2.3"
+  }
+}
