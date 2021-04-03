@@ -5,6 +5,11 @@ export default (src: String) => (`
       <meta charset="utf-8">
       <title>Paraglider Flights</title>
     </head>
+    <style>
+      html {
+        background: #101010;
+      }
+    </style>
     <body>
       <div id="root"></div>
       ${src}

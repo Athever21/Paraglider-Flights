@@ -3,6 +3,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import template from "./template";
 
+import fileRouter from "./routes/files";
+
 const cwd = process.cwd();
 const app = express();
 let src = '<script src="/build/bundle.js"></script>';
@@ -21,7 +23,9 @@ if (process.env.NODE_ENB === "production") {
   require("./devBundle").default(app);
 }
 
+app.use(express.json());
 app.use("/build/", express.static(path.join(cwd, "build")));
+app.use("/file", fileRouter);
 app.get("*", (_, res: Response) => {
   return res.send(template(src));
 });
