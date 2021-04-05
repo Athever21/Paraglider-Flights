@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
-    "build": "webpack --mode=production && webpack --mode=prodcution --config webpack.client.prod.js",
+    "build": "webpack --mode=production && webpack --config webpack.client.prod.js",
     "start": "node ./build/server.js"
   },
   "author": "",
@@ -37,8 +37,10 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
+    "googleapis": "^70.0.0",
     "https": "^1.0.0",
     "path": "^0.12.7",
     "react": "^17.0.1",

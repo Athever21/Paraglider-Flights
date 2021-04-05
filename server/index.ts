@@ -5,16 +5,17 @@ import template from "./template";
 
 import fileRouter from "./routes/files";
 
+require("dotenv").config();
 const cwd = process.cwd();
 const app = express();
 let src = '<script src="/build/bundle.js"></script>';
 
-if (process.env.NODE_ENB === "production") {
+if (process.env.NODE_ENV === "production") {
   src = "";
   (async () => {
     const dir = await fs.readdir(path.join(cwd, "build"));
     dir.forEach((filename: String) => {
-      if (filename.includes("bundle")) {
+      if (filename.includes("bundle") && !filename.includes(".txt")) {
         src += `\n\t<script src="/build/${filename}"></script>`;
       }
     });

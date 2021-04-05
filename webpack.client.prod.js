@@ -4,7 +4,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   name: "browser",
-  devtool: "eval-source-map",
+  mode: "production",
   entry: [path.join(cwd,"client","index.tsx")],
   output: {
     path: path.join(cwd,"build"),
@@ -33,6 +33,6 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: [".ts",".tsx"]
+    extensions: [".ts",".tsx",".js"]
   }
 }

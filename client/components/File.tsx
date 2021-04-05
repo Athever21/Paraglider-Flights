@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   wdith: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
+  align-items: center;
 `;
 
 const Input = styled.input`
@@ -32,6 +33,14 @@ const Input = styled.input`
 const H3 = styled.h3`
   font-size: 2.1rem;
   margin: 0.5rem;
+
+  @media (max-width: 800px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Button = styled.button`
@@ -46,17 +55,33 @@ const Button = styled.button`
   }
 `;
 
-const File = () => {
+interface FileProps {
+  setData: Function;
+  setError: Function;
+  setLoading: Function;
+}
+
+const File = ({ setData, setError, setLoading }: FileProps) => {
   const [link, setLink] = useState("");
 
   const handleSubmit = async () => {
+    setData({});
+    setError("");
+    setLoading(true);
+
     try {
-      await axios.post(`http://localhost:3000/file/from-link`, {
-        url: link,
-      });
+      const { data } = await axios.post(
+        `http://localhost:3000/file/from-link`,
+        {
+          url: link,
+        }
+      );
+
+      if (data) setLoading(false);
+      setData(JSON.parse(data));
     } catch (err) {
-      console.log(err);
-      console.log(err.response);
+      setLoading(false);
+      setError(err.response.data.error);
     }
   };
 
